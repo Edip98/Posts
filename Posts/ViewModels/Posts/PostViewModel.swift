@@ -13,6 +13,8 @@ class PostViewModel {
     
     let navigationBarTitle = "Posts"
     let expandButtonText = "Expand"
+    let collapseButtonText = "Collapse"
+    let heartEmoji = "❤️"
     
     init() {
         getPosts()
