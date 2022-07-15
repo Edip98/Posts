@@ -16,6 +16,9 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var expandButton: UIButton!
     
     static let identifier = "PostCell"
+    var isButtonPressed = false
+    
+    var buttonClicked: ((PostCell) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,17 +33,26 @@ class PostCell: UITableViewCell {
     static func nib() -> UINib {
         return UINib(nibName: "PostCell", bundle: nil)
     }
+  
     
-    func configure(with viewModel: PostViewModel, indexPath: IndexPath) {
+    func configure(with viewModel: PostViewModel, indexPath: IndexPath, expandedIndexSet: IndexSet ) {
         titleLabel.text = viewModel.dataSource?.posts[indexPath.row].title
         detailLabel.text = viewModel.dataSource?.posts[indexPath.row].previewText
-        likesLabel.text = "❤️ \(viewModel.dataSource?.posts[indexPath.row].likesCount ?? 0)"
+        likesLabel.text = "\(viewModel.heartEmoji) \(viewModel.dataSource?.posts[indexPath.row].likesCount ?? 0)"
         dateLabel.text = viewModel.getTheFormattedDate(at: indexPath)
         expandButton.setTitle(viewModel.expandButtonText, for: .normal)
+        
+        if expandedIndexSet.contains(indexPath.row) {
+            expandButton.setTitle(viewModel.collapseButtonText, for: .normal)
+            detailLabel.numberOfLines = 0
+        } else {
+            expandButton.setTitle(viewModel.expandButtonText, for: .normal)
+            detailLabel.numberOfLines = 2
+        }
     }
     
-    @IBAction func expandButtonTapped(_ sender: Any) {
-        print("ExpandButtonTapped")
+    @IBAction func expandButtonTapped(_ sender: UIButton) {
+        buttonClicked?(self)
     }
     
     private func configureCell() {
@@ -55,22 +67,22 @@ class PostCell: UITableViewCell {
     }
     
     func configureDetailLabel() {
-        detailLabel.textColor = .secondarySystemBackground
+        detailLabel.textColor = .black
         detailLabel.numberOfLines = 2
         detailLabel.lineBreakMode = .byTruncatingTail
     }
     
     func configureLikeslabel() {
-        likesLabel.textColor = .secondarySystemBackground
+        likesLabel.textColor = .secondaryLabel
     }
     
     func configureDateLabel() {
-        dateLabel.textColor = .secondarySystemBackground
+        dateLabel.textColor = .secondaryLabel
     }
     
     func configureButton() {
         expandButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
-        expandButton.backgroundColor = .systemGray
+        expandButton.backgroundColor = .systemIndigo
         expandButton.setTitleColor(.white, for: .normal)
         expandButton.layer.cornerRadius = 12
     }
