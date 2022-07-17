@@ -73,7 +73,7 @@ class DetailsViewController: UIViewController {
     }
     
     private func configureLikesLabel() {
-        likesLabel.text = decimalStyle(viewModel.likes ?? 0)
+        likesLabel.text = NumberFormatterStyle.decimalStyle(viewModel.likes ?? 0)
         likesLabel.textColor = .black
         likesLabel.font = .systemFont(ofSize: 16)
     }
