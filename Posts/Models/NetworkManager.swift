@@ -12,7 +12,7 @@ class NetworkManager {
     static let shared = NetworkManager()
     private let baseUrl = "https://raw.githubusercontent.com/anton-natife/jsons/master/api/main.json"
     
-    func getPost(completed: @escaping (Result<PoststsModel, ErrorMessage>) -> Void) {
+    func getPosts(completed: @escaping (Result<PoststsModel, ErrorMessage>) -> Void) {
         
         guard let url = URL(string: baseUrl) else { return }
         
@@ -32,7 +32,7 @@ class NetworkManager {
                 completed(.failure(.invalidData))
                 return
             }
- 
+            
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -65,7 +65,7 @@ class NetworkManager {
                 completed(.failure(.invalidData))
                 return
             }
- 
+            
             do {
                 let decoder = JSONDecoder()
                 let details = try decoder.decode(DetailsModel.self, from: data)

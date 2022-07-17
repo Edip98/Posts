@@ -12,6 +12,8 @@
 		C3588423288201C700F6C4CF /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3588422288201C700F6C4CF /* DetailsViewController.swift */; };
 		C358842628831BE100F6C4CF /* DetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358842528831BE100F6C4CF /* DetailsModel.swift */; };
 		C35884292883574B00F6C4CF /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35884282883574A00F6C4CF /* UIImageView+Ext.swift */; };
+		C358842D2884712300F6C4CF /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358842C2884712300F6C4CF /* UIViewController+Ext.swift */; };
+		C35884332884BAFD00F6C4CF /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35884322884BAFD00F6C4CF /* NumberFormatter.swift */; };
 		C378884D28801DD90027F578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C378884C28801DD90027F578 /* AppDelegate.swift */; };
 		C378884F28801DD90027F578 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C378884E28801DD90027F578 /* SceneDelegate.swift */; };
 		C378885428801DD90027F578 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C378885228801DD90027F578 /* Main.storyboard */; };
@@ -32,6 +34,8 @@
 		C3588422288201C700F6C4CF /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		C358842528831BE100F6C4CF /* DetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModel.swift; sourceTree = "<group>"; };
 		C35884282883574A00F6C4CF /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
+		C358842C2884712300F6C4CF /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		C35884322884BAFD00F6C4CF /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 		C378884928801DD90027F578 /* Posts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Posts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C378884C28801DD90027F578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C378884E28801DD90027F578 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				C35884282883574A00F6C4CF /* UIImageView+Ext.swift */,
+				C358842C2884712300F6C4CF /* UIViewController+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				C378887B28803B890027F578 /* ErrorMessage.swift */,
+				C35884322884BAFD00F6C4CF /* NumberFormatter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -318,9 +324,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C35884292883574B00F6C4CF /* UIImageView+Ext.swift in Sources */,
+				C358842D2884712300F6C4CF /* UIViewController+Ext.swift in Sources */,
 				C3788867288020A40027F578 /* PostViewModel.swift in Sources */,
 				C378886128801FDA0027F578 /* PostsViewController.swift in Sources */,
 				C378884D28801DD90027F578 /* AppDelegate.swift in Sources */,
+				C35884332884BAFD00F6C4CF /* NumberFormatter.swift in Sources */,
 				C378887928803AC40027F578 /* NetworkManager.swift in Sources */,
 				C378887C28803B890027F578 /* ErrorMessage.swift in Sources */,
 				C37888772880318E0027F578 /* PoststsModel.swift in Sources */,

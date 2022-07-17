@@ -17,7 +17,7 @@ struct Post: Decodable {
     let title, text: String
     let postImage: String
     let likesCount: Int
-
+    
     enum CodingKeys: String, CodingKey {
         case postID = "postId"
         case timeshamp, title, text, postImage

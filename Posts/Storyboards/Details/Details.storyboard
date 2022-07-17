@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vpy-Cw-GJo">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="486.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="490"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yap-nv-6aL">
                                                 <rect key="frame" x="15" y="15" width="384" height="350"/>
@@ -31,23 +31,23 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="TCi-vm-67M">
-                                                <rect key="frame" x="15" y="451" width="384" height="20.5"/>
+                                                <rect key="frame" x="44" y="451" width="355" height="24"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TxU-7O-dzW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="192" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="177.5" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63W-4Q-MJl">
-                                                        <rect key="frame" x="192" y="0.0" width="192" height="20.5"/>
+                                                        <rect key="frame" x="177.5" y="0.0" width="177.5" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="20.5" id="Peb-hb-IFp"/>
+                                                    <constraint firstAttribute="height" constant="24" id="Peb-hb-IFp"/>
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utl-UW-RAC">
@@ -68,6 +68,13 @@
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="qrp-m4-d9R">
                                                 <rect key="frame" x="188.5" y="171.5" width="37" height="37"/>
                                             </activityIndicatorView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q9h-yc-Am0">
+                                                <rect key="frame" x="15" y="451" width="24" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="24" id="L76-fJ-p0U"/>
+                                                    <constraint firstAttribute="height" constant="24" id="gmt-wt-P2x"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -75,8 +82,10 @@
                                             <constraint firstItem="qrp-m4-d9R" firstAttribute="centerY" secondItem="yap-nv-6aL" secondAttribute="centerY" id="7OQ-RL-btt"/>
                                             <constraint firstItem="qrp-m4-d9R" firstAttribute="centerX" secondItem="yap-nv-6aL" secondAttribute="centerX" id="8bm-LZ-gEh"/>
                                             <constraint firstAttribute="trailing" secondItem="utl-UW-RAC" secondAttribute="trailing" constant="15" id="Qnj-QX-NK6"/>
+                                            <constraint firstAttribute="bottom" secondItem="q9h-yc-Am0" secondAttribute="bottom" constant="15" id="UTx-hp-rxy"/>
+                                            <constraint firstItem="q9h-yc-Am0" firstAttribute="leading" secondItem="Vpy-Cw-GJo" secondAttribute="leading" constant="15" id="XQM-d3-tzj"/>
                                             <constraint firstAttribute="trailing" secondItem="TCi-vm-67M" secondAttribute="trailing" constant="15" id="aQ3-jE-dub"/>
-                                            <constraint firstItem="TCi-vm-67M" firstAttribute="leading" secondItem="Vpy-Cw-GJo" secondAttribute="leading" constant="15" id="eUU-0j-HXl"/>
+                                            <constraint firstItem="TCi-vm-67M" firstAttribute="leading" secondItem="q9h-yc-Am0" secondAttribute="trailing" constant="5" id="eUU-0j-HXl"/>
                                             <constraint firstItem="oO3-2D-EH8" firstAttribute="top" secondItem="utl-UW-RAC" secondAttribute="bottom" constant="15" id="fdK-w1-3T2"/>
                                             <constraint firstItem="utl-UW-RAC" firstAttribute="leading" secondItem="Vpy-Cw-GJo" secondAttribute="leading" constant="15" id="ghv-Yc-oCv"/>
                                             <constraint firstAttribute="bottom" secondItem="TCi-vm-67M" secondAttribute="bottom" constant="15" id="h2A-uB-h5i"/>
@@ -112,6 +121,7 @@
                         <outlet property="activityIndicator" destination="qrp-m4-d9R" id="OvV-Pe-CjE"/>
                         <outlet property="contentView" destination="Vpy-Cw-GJo" id="wfN-Xl-CiL"/>
                         <outlet property="dateLabel" destination="63W-4Q-MJl" id="PUd-Ck-M9S"/>
+                        <outlet property="heartImageView" destination="q9h-yc-Am0" id="Gma-ab-Grd"/>
                         <outlet property="likesLabel" destination="TxU-7O-dzW" id="N06-MB-tLo"/>
                         <outlet property="postImageView" destination="yap-nv-6aL" id="o92-05-r3y"/>
                         <outlet property="scrollView" destination="cCQ-5U-yDq" id="Saf-gr-Lwk"/>
