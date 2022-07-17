@@ -14,38 +14,44 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var heartImageView: UIImageView!
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var viewModel = DetailsViewModel()
+    let viewModel = DetailsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        navigationItem.title = viewModel.navigationBarTitle
-        navigationController?.navigationBar.tintColor = .systemIndigo
-        contentView.backgroundColor = .clear
-        activityIndicator.color = .systemIndigo
+        configureViewController()
         configureScrollView()
         configurePostImageView()
         configureTitleLabel()
         configureTextLabel()
+        configureHeartImageView()
         configureLikesLabel()
         configureDateLabel()
+        contentView.backgroundColor = .clear
+        activityIndicator.color = .systemIndigo
     }
     
-    func configureScrollView() {
+    private func configureViewController() {
+        view.backgroundColor = .white
+        navigationItem.title = viewModel.navigationBarTitle
+        navigationController?.navigationBar.tintColor = .systemIndigo
+    }
+    
+    private func configureScrollView() {
         scrollView.backgroundColor = .clear
     }
     
-    func configurePostImageView() {
+    private func configurePostImageView() {
         guard let url = viewModel.image else { return }
         postImageView.loadImage(from: url, indicator: activityIndicator)
         postImageView.contentMode = .scaleAspectFill
     }
     
-    func configureTitleLabel() {
+    private func configureTitleLabel() {
         titleLabel.text = viewModel.title
         titleLabel.textColor = .black
         titleLabel.font = .boldSystemFont(ofSize: 20)
@@ -53,20 +59,28 @@ class DetailsViewController: UIViewController {
         titleLabel.sizeToFit()
     }
     
-    func configureTextLabel() {
+    private func configureTextLabel() {
         textLabel.text = viewModel.text
         textLabel.textColor = .black
+        textLabel.font = .systemFont(ofSize: 17)
         textLabel.numberOfLines = 0
         textLabel.sizeToFit()
     }
     
-    func configureLikesLabel() {
-        likesLabel.text = viewModel.likes
-        likesLabel.textColor = .black
+    private func configureHeartImageView() {
+        heartImageView.image = UIImage(named: viewModel.hearImageName)
+        heartImageView.contentMode = .scaleToFill
     }
     
-    func configureDateLabel() {
-        dateLabel.text = viewModel.getTheFormattedDate()
-        dateLabel.textColor = .black
+    private func configureLikesLabel() {
+        likesLabel.text = decimalStyle(viewModel.likes ?? 0)
+        likesLabel.textColor = .black
+        likesLabel.font = .systemFont(ofSize: 16)
+    }
+    
+    private func configureDateLabel() {
+        dateLabel.text = viewModel.getTheFormattedDateFromUnixTime()
+        dateLabel.textColor = .systemGray
+        dateLabel.font = .systemFont(ofSize: 17)
     }
 }

@@ -11,18 +11,20 @@ class PostCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var expandButton: UIButton!
     
     static let identifier = "PostCell"
-    var buttonClicked: ((PostCell) -> Void)?
+    var didTapExpand: ((PostCell) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         configureCell()
         configureTitleLabel()
         configureDetailLabel()
+        configureHeartImageView()
         configureLikeslabel()
         configureDateLabel()
         configureButton()
@@ -35,7 +37,8 @@ class PostCell: UITableViewCell {
     func configure(with viewModel: PostViewModel, indexPath: IndexPath, expandedIndexSet: IndexSet ) {
         titleLabel.text = viewModel.dataSource?.posts[indexPath.row].title
         detailLabel.text = viewModel.dataSource?.posts[indexPath.row].previewText
-        likesLabel.text = "\(viewModel.heartEmoji) \(viewModel.dataSource?.posts[indexPath.row].likesCount ?? 0)"
+        likeImageView.image = UIImage(named: viewModel.hearImageName)
+        likesLabel.text = decimalStyle(viewModel.dataSource?.posts[indexPath.row].likesCount ?? 0)
         dateLabel.text = viewModel.getTheFormattedDate(at: indexPath)
         expandButton.setTitle(viewModel.expandButtonText, for: .normal)
         
@@ -49,7 +52,7 @@ class PostCell: UITableViewCell {
     }
     
     @IBAction func expandButtonTapped(_ sender: UIButton) {
-        buttonClicked?(self)
+        didTapExpand?(self)
     }
     
     private func configureCell() {
@@ -60,21 +63,29 @@ class PostCell: UITableViewCell {
     private func configureTitleLabel() {
         titleLabel.textColor = .black
         titleLabel.numberOfLines = 2
-        titleLabel.font = .boldSystemFont(ofSize: 16)
+        titleLabel.font = .systemFont(ofSize: 17, weight: .bold)
     }
     
     private func configureDetailLabel() {
         detailLabel.textColor = .black
-        detailLabel.numberOfLines = 2
         detailLabel.lineBreakMode = .byTruncatingTail
+        detailLabel.font = .systemFont(ofSize: 17)
+    }
+    
+    private func configureHeartImageView() {
+        likeImageView.contentMode = .scaleToFill
     }
     
     private func configureLikeslabel() {
         likesLabel.textColor = .black
+        likesLabel.textColor = .black
+        likesLabel.font = .systemFont(ofSize: 16)
     }
     
     private func configureDateLabel() {
         dateLabel.textColor = .black
+        dateLabel.textColor = .systemGray
+        dateLabel.font = .systemFont(ofSize: 17)
     }
     
     private func configureButton() {

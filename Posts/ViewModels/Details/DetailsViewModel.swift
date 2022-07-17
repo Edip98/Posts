@@ -6,18 +6,19 @@
 //
 
 import Foundation
-import UIKit
 
 class DetailsViewModel {
     
     let navigationBarTitle = "Posts"
-    let heartEmoji = "❤️"
-
+    let hearImageName = "heart"
+    
+    var pushVC = {() -> () in }
+    
     var id: Int?
     var title: String?
     var text: String?
     var image: URL?
-    var likes: String?
+    var likes: Int?
     var date: Int?
     
     var detail: DetailsModel? {
@@ -25,15 +26,15 @@ class DetailsViewModel {
             title = detail?.post.title
             text = detail?.post.text
             image = URL(string: detail?.post.postImage ?? "")
-            likes = "\(heartEmoji) \(detail?.post.likesCount ?? 0)"
+            likes = detail?.post.likesCount ?? 0
             date = detail?.post.timeshamp
+            pushVC()
         }
     }
     
     func getDetails() {
         NetworkManager.shared.getPostInfo(by: id ?? 0) { [weak self] result in
             guard let self = self else { return }
-            
             switch result {
             case .success(let details):
                 self.detail = details
@@ -43,11 +44,11 @@ class DetailsViewModel {
         }
     }
     
-    func getTheFormattedDate() -> String {
+    func getTheFormattedDateFromUnixTime() -> String {
         let unixTime = TimeInterval(date ?? 0)
         let date = Date(timeIntervalSince1970: unixTime)
-        let formatter = RelativeDateTimeFormatter()
-        formatter.unitsStyle = .full
-        return formatter.localizedString(for: date, relativeTo: Date())
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "d MMMM YYYY"
+        return dateFormater.string(from: date)
     }
 }

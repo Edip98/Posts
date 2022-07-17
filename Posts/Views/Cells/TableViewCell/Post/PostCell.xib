@@ -21,22 +21,22 @@
                         <rect key="frame" x="15" y="0.0" width="320" height="250"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDg-ce-hdO">
-                                <rect key="frame" x="0.0" y="10" width="320" height="40"/>
+                                <rect key="frame" x="0.0" y="10" width="320" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="w9w-SN-sUc"/>
+                                    <constraint firstAttribute="height" constant="50" id="w9w-SN-sUc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kb7-6J-iNN">
-                                <rect key="frame" x="0.0" y="50" width="320" height="111"/>
+                                <rect key="frame" x="0.0" y="60" width="320" height="101"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iew-pu-inq">
-                                <rect key="frame" x="0.0" y="171" width="150" height="24"/>
+                                <rect key="frame" x="29" y="171" width="150" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="K42-2g-uKO"/>
                                     <constraint firstAttribute="width" constant="150" id="W41-hr-9S2"/>
@@ -66,9 +66,17 @@
                                     <action selector="expandButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="M1J-u5-JD6"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rw6-aQ-bSv">
+                                <rect key="frame" x="0.0" y="171" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="9T1-c2-9vC"/>
+                                    <constraint firstAttribute="width" constant="24" id="fbF-DF-3Tu"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Rw6-aQ-bSv" firstAttribute="leading" secondItem="WOA-fD-7Ef" secondAttribute="leading" id="5Bg-Ec-Uvm"/>
                             <constraint firstAttribute="trailing" secondItem="hDg-ce-hdO" secondAttribute="trailing" id="6fI-P9-pvE"/>
                             <constraint firstItem="hDg-ce-hdO" firstAttribute="leading" secondItem="WOA-fD-7Ef" secondAttribute="leading" id="ChJ-Nt-3WQ"/>
                             <constraint firstItem="kb7-6J-iNN" firstAttribute="leading" secondItem="WOA-fD-7Ef" secondAttribute="leading" id="Hta-ly-PMf"/>
@@ -81,8 +89,9 @@
                             <constraint firstItem="kb7-6J-iNN" firstAttribute="top" secondItem="hDg-ce-hdO" secondAttribute="bottom" id="hop-st-nWg"/>
                             <constraint firstItem="h4T-tn-UGg" firstAttribute="top" secondItem="Iew-pu-inq" secondAttribute="bottom" constant="10" id="qiV-3O-6FW"/>
                             <constraint firstItem="hDg-ce-hdO" firstAttribute="top" secondItem="WOA-fD-7Ef" secondAttribute="top" constant="10" id="ucW-yE-vVC"/>
-                            <constraint firstItem="Iew-pu-inq" firstAttribute="leading" secondItem="WOA-fD-7Ef" secondAttribute="leading" id="xAt-du-8hT"/>
+                            <constraint firstItem="Iew-pu-inq" firstAttribute="leading" secondItem="Rw6-aQ-bSv" secondAttribute="trailing" constant="5" id="xAt-du-8hT"/>
                             <constraint firstItem="Iew-pu-inq" firstAttribute="top" secondItem="kb7-6J-iNN" secondAttribute="bottom" constant="10" id="ymp-t3-fir"/>
+                            <constraint firstItem="h4T-tn-UGg" firstAttribute="top" secondItem="Rw6-aQ-bSv" secondAttribute="bottom" constant="10" id="zRq-wq-hcP"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -99,6 +108,7 @@
                 <outlet property="dateLabel" destination="lwk-Yd-uix" id="ZJG-rg-6vU"/>
                 <outlet property="detailLabel" destination="kb7-6J-iNN" id="snt-Ls-rjl"/>
                 <outlet property="expandButton" destination="h4T-tn-UGg" id="KhE-9n-8hX"/>
+                <outlet property="likeImageView" destination="Rw6-aQ-bSv" id="xw1-oh-A0P"/>
                 <outlet property="likesLabel" destination="Iew-pu-inq" id="TsC-NS-EtI"/>
                 <outlet property="titleLabel" destination="hDg-ce-hdO" id="Mov-SM-gYB"/>
             </connections>
