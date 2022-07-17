@@ -70,11 +70,11 @@ class PostCell: UITableViewCell {
     }
     
     private func configureLikeslabel() {
-        likesLabel.textColor = .gray
+        likesLabel.textColor = .black
     }
     
     private func configureDateLabel() {
-        dateLabel.textColor = .gray
+        dateLabel.textColor = .black
     }
     
     private func configureButton() {

@@ -16,6 +16,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var viewModel = DetailsViewModel()
     
@@ -23,7 +24,9 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         navigationItem.title = viewModel.navigationBarTitle
+        navigationController?.navigationBar.tintColor = .systemIndigo
         contentView.backgroundColor = .clear
+        activityIndicator.color = .systemIndigo
         configureScrollView()
         configurePostImageView()
         configureTitleLabel()
@@ -37,6 +40,8 @@ class DetailsViewController: UIViewController {
     }
     
     func configurePostImageView() {
+        guard let url = viewModel.image else { return }
+        postImageView.loadImage(from: url, indicator: activityIndicator)
         postImageView.contentMode = .scaleAspectFill
     }
     
@@ -65,4 +70,3 @@ class DetailsViewController: UIViewController {
         dateLabel.textColor = .black
     }
 }
-

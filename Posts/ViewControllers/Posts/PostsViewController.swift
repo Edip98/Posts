@@ -21,6 +21,11 @@ class PostsViewController: UIViewController {
         configureTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     private func configureTableView() {
         tableView.register(PostCell.nib(), forCellReuseIdentifier: PostCell.identifier)
         tableView.delegate = self
@@ -57,7 +62,8 @@ extension PostsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
-        vc.viewModel.post = viewModel.dataSource?.posts[indexPath.row]
+        vc.viewModel.id = viewModel.dataSource?.posts[indexPath.row].postId ?? 0
+        vc.viewModel.getDetails()
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
