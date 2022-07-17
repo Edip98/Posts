@@ -37,7 +37,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="79.6875"/>
+            <point key="canvasLocation" x="801" y="80"/>
+        </scene>
+        <!--DetailsViewController-->
+        <scene sceneID="zxY-kh-Bra">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="DetailsViewController" storyboardName="Details" referencedIdentifier="DetailsViewController" id="gG3-r0-mJN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y1e-4v-Vtg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1325" y="80"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZqG-hS-Mln">

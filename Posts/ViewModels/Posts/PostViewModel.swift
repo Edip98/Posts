@@ -9,14 +9,14 @@ import Foundation
 
 class PostViewModel {
     
-    var dataSource: DataSource?
+    var dataSource: PoststsModel?
     
     let navigationBarTitle = "Posts"
     let expandButtonText = "Expand"
     let collapseButtonText = "Collapse"
     let heartEmoji = "❤️"
     
-    init() {
+     init() {
         getPosts()
     }
     

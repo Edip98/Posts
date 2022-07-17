@@ -10,7 +10,8 @@ import UIKit
 class PostsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    private var viewModel = PostViewModel()
+    
+    private let viewModel = PostViewModel()
     var expandedIndexSet : IndexSet = []
     
     override func viewDidLoad() {
@@ -20,7 +21,12 @@ class PostsViewController: UIViewController {
         configureTableView()
     }
     
-    func configureTableView() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    private func configureTableView() {
         tableView.register(PostCell.nib(), forCellReuseIdentifier: PostCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
@@ -52,5 +58,12 @@ extension PostsViewController: UITableViewDataSource, UITableViewDelegate {
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
+        vc.viewModel.id = viewModel.dataSource?.posts[indexPath.row].postId ?? 0
+        vc.viewModel.getDetails()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -16,8 +16,6 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var expandButton: UIButton!
     
     static let identifier = "PostCell"
-    var isButtonPressed = false
-    
     var buttonClicked: ((PostCell) -> Void)?
     
     override func awakeFromNib() {
@@ -33,7 +31,6 @@ class PostCell: UITableViewCell {
     static func nib() -> UINib {
         return UINib(nibName: "PostCell", bundle: nil)
     }
-  
     
     func configure(with viewModel: PostViewModel, indexPath: IndexPath, expandedIndexSet: IndexSet ) {
         titleLabel.text = viewModel.dataSource?.posts[indexPath.row].title
@@ -60,27 +57,27 @@ class PostCell: UITableViewCell {
         backgroundColor = .clear
     }
     
-    func configureTitleLabel() {
+    private func configureTitleLabel() {
         titleLabel.textColor = .black
         titleLabel.numberOfLines = 2
         titleLabel.font = .boldSystemFont(ofSize: 16)
     }
     
-    func configureDetailLabel() {
+    private func configureDetailLabel() {
         detailLabel.textColor = .black
         detailLabel.numberOfLines = 2
         detailLabel.lineBreakMode = .byTruncatingTail
     }
     
-    func configureLikeslabel() {
-        likesLabel.textColor = .secondaryLabel
+    private func configureLikeslabel() {
+        likesLabel.textColor = .black
     }
     
-    func configureDateLabel() {
-        dateLabel.textColor = .secondaryLabel
+    private func configureDateLabel() {
+        dateLabel.textColor = .black
     }
     
-    func configureButton() {
+    private func configureButton() {
         expandButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
         expandButton.backgroundColor = .systemIndigo
         expandButton.setTitleColor(.white, for: .normal)

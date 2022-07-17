@@ -1,5 +1,5 @@
 //
-//  Post.swift
+//  PoststsModel.swift
 //  Posts
 //
 //  Created by Эдип on 14.07.2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DataSource: Codable {
+struct PoststsModel: Codable {
     var posts: [Posts]
 }
 
