@@ -38,7 +38,7 @@ class PostCell: UITableViewCell {
         titleLabel.text = viewModel.dataSource?.posts[indexPath.row].title
         detailLabel.text = viewModel.dataSource?.posts[indexPath.row].previewText
         likeImageView.image = UIImage(named: viewModel.hearImageName)
-        likesLabel.text = decimalStyle(viewModel.dataSource?.posts[indexPath.row].likesCount ?? 0)
+        likesLabel.text = NumberFormatterStyle.decimalStyle(viewModel.dataSource?.posts[indexPath.row].likesCount ?? 0)
         dateLabel.text = viewModel.getTheFormattedDate(at: indexPath)
         expandButton.setTitle(viewModel.expandButtonText, for: .normal)
         
