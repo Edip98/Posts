@@ -125,6 +125,7 @@
 			children = (
 				C35884272883572600F6C4CF /* Extension */,
 				C378887A28803B620027F578 /* Utilities */,
+				C3AE405B2885C0F400A9EF8A /* Managers */,
 				C3788874288031790027F578 /* Models */,
 				C3788869288020B60027F578 /* Views */,
 				C3788865288020820027F578 /* ViewModels */,
@@ -223,7 +224,6 @@
 		C3788874288031790027F578 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C378887828803AC40027F578 /* NetworkManager.swift */,
 				C358842428831A7E00F6C4CF /* Details */,
 				C37888752880317C0027F578 /* Posts */,
 			);
@@ -256,6 +256,14 @@
 				C378885728801DDA0027F578 /* LaunchScreen.storyboard */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		C3AE405B2885C0F400A9EF8A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				C378887828803AC40027F578 /* NetworkManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

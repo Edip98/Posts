@@ -31,6 +31,8 @@ class PostViewModel {
     var dataSource: PoststsModel? {
         didSet {
             reloadList()
+            sortedByLikes = dataSource?.posts.sorted(by: { $0.likesCount > $1.likesCount})
+            sortedByDate = dataSource?.posts.sorted(by: { $0.timeshamp < $1.timeshamp})
         }
     }
     
@@ -40,8 +42,6 @@ class PostViewModel {
             switch result {
             case .success(let posts):
                 self.dataSource = posts
-                self.sortedByLikes = posts.posts.sorted(by: { $0.likesCount > $1.likesCount})
-                self.sortedByDate = posts.posts.sorted(by: { $0.timeshamp < $1.timeshamp})
             case.failure(let error):
                 print(error)
             }
